@@ -5,19 +5,20 @@ import json
 import re
 import ollama
 import os
-import time
+import uuid
 
 
 class ImageCaptioner:
     # Make the model selection configurable for different models
     # NOTE: Make sure that the models is available in the ollama library and supports the image captioning task
-    def __init__(self, model_name="qwen2.5vl:3b"):
+    def __init__(self, model_name="gemma3:4b"):
         self.model_name = model_name
         self.system_prompt = """
         You are an expert image captioning model focused on urban safety, sanitation, and infrastructure.
         Describe this image by providing:
         1. A detailed caption describing what is visible and relevant to urban conditions.
-        2. A list of relevant tags highlighting key features, objects, or issues (e.g., "flooding", "trash", "pedestrian lane", "damaged road", "congested lanes", "risk of flooding", "accident prone").
+        2. A list of relevant tags highlighting key features, objects, or issues (e.g., "flooding", "trash", "pedestrian lane", 
+        "damaged road", "congested lanes", "risk of flooding", "accident prone").
 
         Return only valid JSON in this format:
         {
@@ -77,7 +78,6 @@ def load_manifest(manifest_path: str) -> list | None:
         return manifest
     return None
 
-
 def verify_manifest(manifest_path: str):
     manifest = load_manifest(manifest_path)
     if manifest is None:
@@ -90,11 +90,7 @@ def verify_manifest(manifest_path: str):
             print(f"Image '{image_path}' not found.")
             return
 
-
 def extract_json_from_response(response_text):
-    """
-    Extracts the first JSON object from a string.
-    """
     try:
         # Use regex to find JSON block
         json_match = re.search(r'\{[\s\S]*\}', response_text)
@@ -128,11 +124,18 @@ def generate_captions(manifest_path: str):
         caption_json = extract_json_from_response(caption)
         caption = caption_json["caption"]
         tags = caption_json["tags"]
-
+        location = image["location"]
+        # Generate a unique ID for the image
+        image_id = uuid.uuid4().hex
         # Add the caption and tags to the manifest
-        image["caption"] = caption
-        image["tags"] = tags
-        caption_manifest.append(image)
+        caption_manifest.append({
+            "image_id": image_id,
+            "image": image_path,
+            "caption": caption,
+            "tags": tags,
+            "location": location
+        })
+
         print("Caption generated for image:", image_path)
 
     with open("caption_manifest.json", "w") as f:
