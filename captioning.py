@@ -1,6 +1,7 @@
 # This script uses qwen2.5vl:3b model to generate captions for images
 # It uses ollama library to interact with the model
 # Refer to the installation instructions in the README.md file to set up the models
+import json
 import ollama
 import os
 import time
@@ -68,17 +69,28 @@ class ImageCaptioner:
             return None
 
 
+def verify_manifest(manifest_path: str):
+    with open(manifest_path, "r") as f:
+        manifest = f.read()
+        manifest = json.loads(manifest)
+        print(f"Manifest loaded: {len(manifest)} images.")
+        for image in manifest:
+            image_path = image["image"]
+            if not os.path.exists(image_path):
+                print(f"Image '{image_path}' does not exist.")
+                return False
+    print("Manifest verified.")
+    return True
+
+
 def main():
-    print("Initializing model...")
-    captioner = ImageCaptioner(model_name="gemma3:4b")
-    image_path = "./data/images/taft-avenue-floods-july-2021-04-1627032815.jpg"
-    start_time = time.time()
-    # Generate the caption
-    print("Generating caption.")
-    caption = captioner.generate_caption(image_path)
-    end_time = time.time()
-    print(f"Caption for '{image_path}': {caption}")
-    print(f"Time taken to generate caption: {end_time - start_time} seconds")
+    # run the manifest verification
+    manifest_path = "data/image_manifest.json"
+    verify_manifest(manifest_path)
+    
+    # print("Initializing model...")
+    # captioner = ImageCaptioner(model_name="gemma3:4b")
+    
 
 
 if __name__ == "__main__":
