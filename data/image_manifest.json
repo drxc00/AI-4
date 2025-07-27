@@ -294,5 +294,61 @@
   {
     "image": "data/images/bad_pedestrian_lane_manila.jpg",
     "location": "Manila"
+  },
+  {
+    "image": "data/images/How-to-transform-Metro-Manila-into-a-bike-friendly-city-4-1024x682.jpg",
+    "location": "Manila"
+  },
+  {
+    "image": "data/images/Screenshot 2025-07-27 131018.png",
+    "location": "Manila"
+  },
+  {
+    "image": "data/images/Screenshot 2025-07-27 131206.png",
+    "location": "Manila"
+  },
+  {
+    "image": "data/images/Screenshot 2025-07-27 131345.png",
+    "location": "Quezon City"
+  },
+  {
+    "image": "data/images/vis-51-e1378100900458.jpg",
+    "location": "Quezon City"
+  },
+  {
+    "image": "data/images/vis-31.jpg",
+    "location": "Quezon City"
+  },
+  {
+    "image": "data/images/tomas-morato-bike-lane-539x540.jpg",
+    "location": "Quezon City"
+  },
+  {
+    "image": "data/images/inaccessible-quezoncity-sidewalk-1024x736.jpg",
+    "location": "Quezon City"
+  },
+  {
+    "image": "data/images/fpj-avenue-rerouting-1668732309.jpg",
+    "location": "Quezon City"
+  },
+  {
+    "image": "data/images/pasig-crosswalk-1-1631700162.jpg",
+    "location": "Pasig"
+  },
+  {
+    "image": "data/images/lopez-jaena-street-pasig-city-peoples-street-1653274275.jpg",
+    "location": "Pasig"
+  },
+  {
+    "image": "data/images/Screenshot 2025-07-27 132444.png",
+    "location": "Pasig"
+  },
+  {
+    "image": "data/images/V_Luna_Avenue.jpg",
+    "location": "Quezon"
+  },
+  {
+    "image": "data/images/468510847_10228974975899717_8934734094963021988_n.jpg",
+    "location": "Quezon"
   }
 ]
