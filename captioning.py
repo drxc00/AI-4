@@ -2,6 +2,7 @@
 # It uses ollama library to interact with the model
 # Refer to the installation instructions in the README.md file to set up the models
 import json
+import re
 import ollama
 import os
 import time
@@ -69,28 +70,82 @@ class ImageCaptioner:
             return None
 
 
-def verify_manifest(manifest_path: str):
+def load_manifest(manifest_path: str) -> list | None:
     with open(manifest_path, "r") as f:
         manifest = f.read()
         manifest = json.loads(manifest)
-        print(f"Manifest loaded: {len(manifest)} images.")
-        for image in manifest:
-            image_path = image["image"]
-            if not os.path.exists(image_path):
-                print(f"Image '{image_path}' does not exist.")
-                return False
-    print("Manifest verified.")
-    return True
+        return manifest
+    return None
+
+
+def verify_manifest(manifest_path: str):
+    manifest = load_manifest(manifest_path)
+    if manifest is None:
+        print("Manifest file not found.")
+        return
+
+    for image in manifest:
+        image_path = image["image"]
+        if not os.path.exists(image_path):
+            print(f"Image '{image_path}' not found.")
+            return
+
+
+def extract_json_from_response(response_text):
+    """
+    Extracts the first JSON object from a string.
+    """
+    try:
+        # Use regex to find JSON block
+        json_match = re.search(r'\{[\s\S]*\}', response_text)
+        if json_match:
+            json_str = json_match.group(0)
+            return json.loads(json_str)
+        else:
+            raise ValueError("No JSON object found in response.")
+    except json.JSONDecodeError as e:
+        raise ValueError("JSON decoding failed.") from e
+
+
+def generate_captions(manifest_path: str):
+    manifest = load_manifest(manifest_path)
+    if manifest is None:
+        print("Manifest file not found.")
+        return
+
+    captioner = ImageCaptioner(model_name="gemma3:4b")
+    caption_manifest = []
+
+    print("Generating caption manifest...")
+    for image in manifest:
+        image_path = image["image"]
+        caption = captioner.generate_caption(image_path)
+        if caption is None:
+            print(f"Failed to generate caption for image '{image_path}'.")
+            continue
+
+        # Parse the caption and tags from the response
+        caption_json = extract_json_from_response(caption)
+        caption = caption_json["caption"]
+        tags = caption_json["tags"]
+
+        # Add the caption and tags to the manifest
+        image["caption"] = caption
+        image["tags"] = tags
+        caption_manifest.append(image)
+        print("Caption generated for image:", image_path)
+
+    with open("caption_manifest.json", "w") as f:
+        json.dump(caption_manifest, f, indent=2)
+    print("Caption manifest generated.")
 
 
 def main():
-    # run the manifest verification
     manifest_path = "data/image_manifest.json"
+    # run the manifest verification
     verify_manifest(manifest_path)
-    
-    # print("Initializing model...")
-    # captioner = ImageCaptioner(model_name="gemma3:4b")
-    
+    # Run the captioning
+    generate_captions(manifest_path)
 
 
 if __name__ == "__main__":
