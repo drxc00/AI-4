@@ -99,29 +99,25 @@ class Rag:
 
         return response["response"]
 
-    def run(self):
+    def ask(self, q: str, k: int):
         if not self.store.store:
             print(
                 "No elements in store. Make sure to load the caption manifest first using load_manifest method.")
             return
 
-        # Get user input for query
-        query = input("Enter a query: ")
-        k = int(input("Enter the number of top results: "))
-
         # Get query embedding
-        query_embedding = self.embed(query)
+        query_embedding = self.embed(q)
 
         # Query the store for top-k most similar elements
         results = self.store.query(query_embedding, k)
 
         # Create a prompt for the LLM
-        prompt = self.create_prompt(query, results)
+        prompt = self.create_prompt(q, results)
 
         # Generate a response from the LLM
         response = self.generate(prompt)
 
-        print({
+        return {
             "response": response,
             "sources": [e["metadata"] for e in results]
-        })
+        }
