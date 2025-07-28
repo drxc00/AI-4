@@ -3,6 +3,7 @@ from typing import TypedDict
 
 class Metadata(TypedDict):
     image_id: str
+    image_path: str
     caption: str
     tags: list[str]
     location: str

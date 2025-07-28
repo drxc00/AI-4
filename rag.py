@@ -43,13 +43,15 @@ class Rag:
     def load_manifest(self, manifest_path: str):
         with open(manifest_path, "r") as f:
             manifest = json.load(f)
-            for image in manifest:
-                image_id = image["image_id"]
-                caption = image["caption"]
-                tags = image["tags"]
-                location = image["location"]
+            for element in manifest:
+                image_id = element["image_id"]
+                image_path = element["image"]
+                caption = element["caption"]
+                tags = element["tags"]
+                location = element["location"]
                 metadata = Metadata(
                     image_id=image_id,
+                    image_path=image_path,
                     caption=caption,
                     tags=tags,
                     location=location
