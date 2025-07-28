@@ -1,0 +1,259 @@
+{
+  "test_queries": [
+    {
+      "query_id": 1,
+      "query": "What are the most common types of unsafe pedestrian infrastructure?",
+      "ground_truth_image_ids": [
+        "5bbbb54d5b2e4caaa491072a3f640171",
+        "80f2e2da5dc94dd0b89ea8d405b8c1f7",
+        "6dbbdf183d254c3db38907aa78d4dbd2",
+        "918aa145aedb426eb3e5ecd3a435093e",
+        "451875b830304b429840ea2a58eeb632",
+        "2e1e0ce3a253422a9332723cd132164d"
+      ],
+      "expected_answer_topics": [
+        "damaged sidewalks",
+        "obstructed walkways",
+        "poor road surfaces",
+        "lack of pedestrian lanes"
+      ]
+    },
+    {
+      "query_id": 2,
+      "query": "Show me locations with missing or damaged sidewalks",
+      "ground_truth_image_ids": [
+        "451875b830304b429840ea2a58eeb632",
+        "602dc04d617e41f0b2dd4f03ad68f0ef",
+        "2ca6ab2eca444f6c9be0a012a57b32e8",
+        "8ac2a145ad0d492c880eca297d83a7ca",
+        "f2ece10a71ca4bd5b277fafae3d41d19",
+        "4d622a1dc41d437a86d777a0015b221c"
+      ],
+      "expected_answer_topics": [
+        "cracked concrete",
+        "uneven surfaces",
+        "structural damage",
+        "maintenance neglect"
+      ]
+    },
+    {
+      "query_id": 3,
+      "query": "Where are pedestrians forced to walk on roads instead of sidewalks?",
+      "ground_truth_image_ids": [
+        "80f2e2da5dc94dd0b89ea8d405b8c1f7",
+        "7e21b20dc42b4c10bf69b6886b7bed66",
+        "3ae52f63938847229586e084071cb3c8",
+        "b1175f4ae5fd4d6b90234f0b4ec8814a",
+        "91b7672e6dc94cc2ab95fc054ba1c30e"
+      ],
+      "expected_answer_topics": [
+        "congested lanes",
+        "shared vehicle-pedestrian spaces",
+        "inadequate sidewalk space"
+      ]
+    },
+    {
+      "query_id": 4,
+      "query": "What flooding and drainage issues affect pedestrian safety?",
+      "ground_truth_image_ids": [
+        "a5cdc954ace04291b08461707b920026",
+        "cd8abcfd0a944b7c97722f1c2205c5a2",
+        "b25cd4726383427a8e5140559d940ad7",
+        "dbbc2d7382bb4715915fb3cde0eb12c6",
+        "f67c424cf3914613b23f11181b712c41",
+        "ecbc8a8977344f0bb77d34ebe5320618"
+      ],
+      "expected_answer_topics": [
+        "standing water",
+        "poor drainage",
+        "flooded walkways",
+        "ankle-deep water"
+      ]
+    },
+    {
+      "query_id": 5,
+      "query": "Find images showing blocked or obstructed walkways",
+      "ground_truth_image_ids": [
+        "918aa145aedb426eb3e5ecd3a435093e",
+        "5c2505c8709b4d78ad86d5c23e434da6",
+        "0b29a749c9b544eda7a0b653bad5a1b5",
+        "ace39d5732574538a8e0e3d2b417aee5",
+        "db03bb16638546e89df68495d5155866",
+        "104014fd35cf4ccc96cd8a2d3d39abc5"
+      ],
+      "expected_answer_topics": [
+        "vendor stalls",
+        "parked vehicles",
+        "construction debris",
+        "trash accumulation"
+      ]
+    },
+    {
+      "query_id": 6,
+      "query": "What are the most dangerous intersection conditions?",
+      "ground_truth_image_ids": [
+        "6dbbdf183d254c3db38907aa78d4dbd2",
+        "e82610be6300410b87fa032e2faa1f20",
+        "a4d4a002543842ab928029323078fbc5",
+        "7d37cbdfd5a04cc087f494a434f41ae5",
+        "71db2a433ccc449d9ed6f6d5eee83e9a"
+      ],
+      "expected_answer_topics": [
+        "damaged zebra crossings",
+        "poor visibility",
+        "wet conditions",
+        "faded markings"
+      ]
+    },
+    {
+      "query_id": 7,
+      "query": "How do infrastructure problems vary between different areas?",
+      "ground_truth_image_ids": [
+        "c6e810083f2e407db742e4bf82c380f3",
+        "4d622a1dc41d437a86d777a0015b221c",
+        "f2ece10a71ca4bd5b277fafae3d41d19",
+        "1b276e5147dd4520a504ad532aafc497",
+        "ace39d5732574538a8e0e3d2b417aee5"
+      ],
+      "expected_answer_topics": [
+        "EDSA conditions",
+        "Makati infrastructure",
+        "Manila street issues",
+        "location-specific problems"
+      ]
+    },
+    {
+      "query_id": 8,
+      "query": "What sanitation issues create pedestrian hazards?",
+      "ground_truth_image_ids": [
+        "a5cdc954ace04291b08461707b920026",
+        "1a0ba26b8a2a4683bb38c84bc64a799b",
+        "5b4f184f15f242a697d5afa93d070b27",
+        "db03bb16638546e89df68495d5155866",
+        "b3b4fec84e52467e90097440c03545b6",
+        "8d9cff5f2bf946f29e092ce657e7fbc9"
+      ],
+      "expected_answer_topics": [
+        "trash accumulation",
+        "debris blocking paths",
+        "waste management failures",
+        "unsanitary conditions"
+      ]
+    },
+    {
+      "query_id": 9,
+      "query": "What accessibility issues are visible for persons with disabilities?",
+      "ground_truth_image_ids": [
+        "19288667614f46ba9d5f2bf9b8b5763e",
+        "1b276e5147dd4520a504ad532aafc497",
+        "7d3ed17a9dd3441f8a2d19232427e4a2",
+        "b5f4a275edf545c1881bc91a36c9a853",
+        "514b1af6977b43358065c788a627e72b"
+      ],
+      "expected_answer_topics": [
+        "wheelchair accessibility",
+        "ramp conditions",
+        "tactile paving",
+        "barrier-free access"
+      ]
+    },
+    {
+      "query_id": 10,
+      "query": "Which locations show the worst road surface conditions?",
+      "ground_truth_image_ids": [
+        "2e1e0ce3a253422a9332723cd132164d",
+        "6e65f7e1e0b4481084d02474a8ba153f",
+        "22ddd11e50844668a1c2d0ca271a0481",
+        "8ac2a145ad0d492c880eca297d83a7ca",
+        "451875b830304b429840ea2a58eeb632"
+      ],
+      "expected_answer_topics": [
+        "large potholes",
+        "severe cracking",
+        "exposed aggregate",
+        "structural damage"
+      ]
+    },
+    {
+      "query_id": 11,
+      "query": "What patterns of vehicle-pedestrian conflicts are visible?",
+      "ground_truth_image_ids": [
+        "3ae52f63938847229586e084071cb3c8",
+        "91b7672e6dc94cc2ab95fc054ba1c30e",
+        "b1175f4ae5fd4d6b90234f0b4ec8814a",
+        "1c4a0c00fd21457dbf74200b4ca1ecac",
+        "396761396add4e259aad6fdaaa167252"
+      ],
+      "expected_answer_topics": [
+        "shared road space",
+        "motorcycle conflicts",
+        "inadequate separation",
+        "traffic density"
+      ]
+    },
+    {
+      "query_id": 12,
+      "query": "Are there examples of proper pedestrian infrastructure in the dataset?",
+      "ground_truth_image_ids": [
+        "5550a1155c6144099d697338f0cd05fa",
+        "1b276e5147dd4520a504ad532aafc497"
+      ],
+      "expected_answer_topics": [
+        "elevated walkways",
+        "accessibility features",
+        "proper maintenance",
+        "safety barriers"
+      ]
+    },
+    {
+      "query_id": 13,
+      "query": "What maintenance and repair work is visible in these areas?",
+      "ground_truth_image_ids": [
+        "94588f61918d49a396062e88a661bf52",
+        "ea6e0e2940b24fa89eb53f72c4881465",
+        "c6e810083f2e407db742e4bf82c380f3",
+        "eb3c5c8d0ab54e7cb458a9d6fb29244c"
+      ],
+      "expected_answer_topics": [
+        "ongoing construction",
+        "debris cleanup",
+        "road repair",
+        "maintenance workers"
+      ]
+    },
+    {
+      "query_id": 14,
+      "query": "How do weather conditions exacerbate infrastructure problems?",
+      "ground_truth_image_ids": [
+        "e82610be6300410b87fa032e2faa1f20",
+        "a4d4a002543842ab928029323078fbc5",
+        "e82a6450270e47d4ab0e896217bd9e0e",
+        "cd8abcfd0a944b7c97722f1c2205c5a2",
+        "396761396add4e259aad6fdaaa167252"
+      ],
+      "expected_answer_topics": [
+        "wet surfaces",
+        "reduced visibility",
+        "slip hazards",
+        "water accumulation"
+      ]
+    },
+    {
+      "query_id": 15,
+      "query": "What specific safety hazards pose the greatest risk to pedestrians?",
+      "ground_truth_image_ids": [
+        "2e1e0ce3a253422a9332723cd132164d",
+        "451875b830304b429840ea2a58eeb632",
+        "a5cdc954ace04291b08461707b920026",
+        "6e65f7e1e0b4481084d02474a8ba153f",
+        "ecbc8a8977344f0bb77d34ebe5320618"
+      ],
+      "expected_answer_topics": [
+        "trip hazards",
+        "structural failures",
+        "unsanitary conditions",
+        "flooding risks"
+      ]
+    }
+  ]
+}

@@ -4,7 +4,6 @@ import json
 import ollama
 from typedefs import Element, Metadata
 
-
 class Rag:
     def __init__(self):
         self.embedding_model = SentenceTransformer(
@@ -71,7 +70,8 @@ class Rag:
         You are an urban analysis assistant helping to answer questions based on images related to Sustainable Development Goals (SDGs), 
         such as urban infrastructure, safety, sanitation, and traffic.
         The user asked: "{q}"
-        Below are the most relevant images retrieved, each with its caption, tags, and location. Use these to answer the question accurately, citing key visual indicators.
+        Below are the most relevant images retrieved, each with its caption, tags, and location. 
+        Use these to answer the question accurately, citing key visual indicators.
         """
         for i, e in enumerate(elements, 1):
             meta = e["metadata"]

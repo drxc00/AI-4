@@ -5,6 +5,7 @@ import { Card, CardContent } from "./components/ui/card";
 import { Label } from "./components/ui/label";
 import { Input } from "./components/ui/input";
 import { Badge } from "./components/ui/badge";
+import Markdown from 'react-markdown'
 
 type Metadata = {
   image_id: string;
@@ -121,9 +122,9 @@ export default function App() {
             <CardContent className="">
               <div className="space-y-4">
                 <h2 className="text-xl font-semibold mb-2">Response:</h2>
-                <p className="text-gray-800 whitespace-pre-line">
+                <Markdown>
                   {response.response}
-                </p>
+                </Markdown>
               </div>
               <div className="space-y-4 pt-4">
                 <h2 className="text-xl font-semibold mb-2">
