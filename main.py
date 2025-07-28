@@ -1,5 +1,9 @@
+from rag import Rag
+
 def main():
-    print("Hello from ai-4!")
+    agent = Rag()
+    agent.load_manifest("data/caption_manifest.json")
+    agent.run()
 
 
 if __name__ == "__main__":
